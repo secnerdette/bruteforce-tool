@@ -4,9 +4,9 @@ from sys import argv
 import requests
 from bs4 import BeautifulSoup as Soup
 
-URL = 'http://www.8a492ec9b1e365a1.tacorala.com/login'
-U_FILE = '/Users/pvirani/uname_file'
-P_FILE = '/Users/pvirani/some_file'
+URL = '<Please insert your URL>'
+U_FILE = '<Please insert the filepath of user list>'
+P_FILE = '<Please insert the filepath of password list>'
 
 def get_token(target_page):
     soup = Soup(target_page.text, "html.parser")
@@ -19,7 +19,7 @@ def get_cookie(target_page):
     return cookie_format
 
 def check_success(target_page):
-    if 'Please enter a correct username and password' in target_page:
+    if 'Please enter a correct username and password' OR 'This field is required' in target_page:
         return False
     return True
 
